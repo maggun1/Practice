@@ -99,25 +99,24 @@ namespace ConsoleVersion
                 }
                 if (partner == "1")
                 {
-                    enemy = "Брата Бури";
+                    enemy = "Брат Бури";
                     partner = "Хадвар";
                 }
                 else if (partner == "2")
                 {
-                    enemy = "импереца";
+                    enemy = "Имперец";
                     partner = "Ралоф";
                 }
                 Console.WriteLine($"После того как Вы с напарником пробираетесь в крепось, он развзывает Вам руки.\n-Ну а теперь веди меня,- сказал {partner}.");
                 Console.ReadKey(true);
-                Console.WriteLine($"Вы заходите в первую комнату. Перед вами два {enemy}!\n 1 - принять бой \n 2 - попыться скрыться");
-                string boyMode = Console.ReadLine();
-                while (boyMode != "1" && boyMode != "2")
+                Console.WriteLine($"Вы заходите в первую комнату. Перед вами {enemy}! Нажмите любую клавишу, чтобы принять бой!");
+                mc.
+                Console.ReadKey(true);
+
+                while (true)
                 {
-                    Console.WriteLine("Введите ответ корректно\n");
-                    boyMode = Console.ReadLine();
+                    
                 }
-                if ()
-                    Console.ReadKey(true);
             }
         }
     }
