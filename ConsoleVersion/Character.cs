@@ -22,7 +22,7 @@ namespace ConsoleVersion
                     armor = 1;
             }
         }
-        public Character(string name, int health, int actionPoints, int armor)
+        public Character(string name, int health, int armor)
         {
             this.name = name;
             this.health = health;
