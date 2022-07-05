@@ -115,7 +115,6 @@ namespace ConsoleVersion
                 Console.ReadKey(true);
                 Console.WriteLine($"Вы заходите в первую комнату. Перед вами {enemy.Name}! Нажмите любую клавишу, чтобы принять бой!\n");           
                 Console.ReadKey(true);
-
                 while (mc.Health > 0 || enemy.Health > 0)
                 {
                     mc.Hit(enemy, mc_wp);
