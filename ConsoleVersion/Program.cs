@@ -53,30 +53,30 @@ namespace ConsoleVersion
                 //Console.WriteLine("Хадвар спрашивает нас: \n-А кто ты?");
                 //Console.ReadKey(true);
                 Console.WriteLine("Выберите персонажа: \n1-Норд (100 HP, 20 AR) \n2-Эльф (75 HP, 15 AR) \n3-Орк (125HP, 25 AR)\n");
-                string character = Console.ReadLine();
+                string choose = Console.ReadLine();
                 Console.WriteLine("Назовите персонажа:");
                 string name = Console.ReadLine();
                 Character mc = null;
                 Weapon mc_wp = null;
-                while (character != "1" && character != "2" && character != "3")
+                while (choose != "1" && choose != "2" && choose != "3")
                 {
                     Console.WriteLine("Введите ответ корректно\n");
-                    character = Console.ReadLine();
+                    choose = Console.ReadLine();
                 }
-                if (character == "1")
+                if (choose == "1")
                 {
                     mc = new Character(name, 100, 20);
                     mc_wp = new Weapon("Меч", 30);
                 }
-                if (character == "2")
+                if (choose == "2")
                 {
                     mc = new Character(name, 75, 15);
                     mc_wp = new Weapon("Кинжал", 40);
                 }
-                if (character == "3")
+                if (choose == "3")
                 {
                     mc = new Character(name, 125, 25);
-                    mc_wp = new Weapon("Бревно", 25);
+                    mc_wp = new Weapon("Бревно", 35);
                 }
                 Console.WriteLine("День нашей казни откладывается, ведь в тот самый момент, когда палач замахивает свою секиру над нашей \nголовой мы замечаем дракона Алдуина, приземляющегося на одну из башен города. В крепости начинается паника. \nИ с этого момента мы вольны сами вершить свою судьбу...\n");
                 //Thread.Sleep(5000);
@@ -92,45 +92,57 @@ namespace ConsoleVersion
                 Console.WriteLine("Необходимо бежать из Хелгена, пока не стало слишком поздно!\n");
                 Console.ReadKey(true);
                 Console.WriteLine("Выберите за кем следовать: \n1 - легионер Хадвар \n2 - Ралоф – Брат Бури\n");
-                string partner = Console.ReadLine();
+                choose = Console.ReadLine();
 
                 Character enemy = null;
                 Weapon en_wp = new Weapon("Ржавый меч", 10);
-                while (partner != "1" && partner != "2")
+                while (choose != "1" && choose != "2")
                 {
                     Console.WriteLine("Введите ответ корректно\n");
-                    partner = Console.ReadLine();
+                    choose = Console.ReadLine();
                 }
-                if (partner == "1")
+                if (choose == "1")
                 {
                     enemy = new Character("Брат Бури", 70, 10);
-                    partner = "Хадвар";
+                    choose = "Хадвар";
                 }
-                else if (partner == "2")
+                else if (choose == "2")
                 {
                     enemy = new Character("Имперец", 70, 10);
-                    partner = "Ралоф";
+                    choose = "Ралоф";
                 }
-                Console.WriteLine($"После того как Вы с напарником пробираетесь в крепось, он развзывает Вам руки.\n-Ну а теперь веди меня,- сказал {partner}.\n");
+                Console.WriteLine($"После того как Вы с напарником пробираетесь в крепось, он развзывает Вам руки.\n-Ну а теперь веди меня,- сказал {choose}.\n");
                 Console.ReadKey(true);
-                Console.WriteLine($"Вы заходите в первую комнату. Перед вами {enemy.Name}! Нажмите любую клавишу, чтобы принять бой!\n");           
+                Console.WriteLine($"Вы заходите в первую комнату. Перед вами {enemy.Name}! Нажмите любую клавишу, чтобы принять бой!\n");
                 Console.ReadKey(true);
-                while (mc.Health > 0 || enemy.Health > 0)
+
+                while (mc.Health > 0 && enemy.Health > 0)
                 {
                     mc.Hit(enemy, mc_wp);
-                    enemy.Hit(enemy, en_wp);
+                    enemy.Hit(mc, en_wp);
                 }
                 if (mc.Health < 0)
                 {
                     Console.WriteLine("Вы погибли!\n");
+                    return;
                 }
-                else
-                {
-                    enemy.Heal();
-                    Console.WriteLine($"Вы победили! У вас осталось {mc.Health} здоровья.");
-                    Console.WriteLine("Выберите действие: \n");
 
+                enemy.Heal();
+                Console.WriteLine($"Вы победили! У вас осталось {mc.Health} здоровья.");
+                Console.WriteLine("Выберите действие: \n1 - пойти на Восток \n2 - пойти на Запад\n");
+                choose = Console.ReadLine();
+
+                while (choose != "1" && choose != "2")
+                {
+                    Console.WriteLine("Введите ответ корректно\n");
+                    choose = Console.ReadLine();
                 }
+                if (choose == "1")
+                {
+                    Console.WriteLine("Вы оказались во второй комнате! Ваши действие: \n1 - Обыскать сундук \n 2 - Активировать рычаг\n");
+                    Console.WriteLine("");
+                }
+                
             }
         }
     }
