@@ -32,13 +32,7 @@ namespace ConsoleVersion
         }
         public void Hit(Character enemy, Weapon weapon)
         {
-            Random random = new Random();
-            if (random.Next(10) != 0)
-            {
-                enemy.Health = enemy.Health - weapon.Damage * 1 / this.Armor;
-            }
-            else
-                throw new Exception($"{name} промахнулся!");
+            enemy.Health = enemy.Health - weapon.Damage * 1 / enemy.Armor;
         }
         public void Heal() => health = maxHealth;
 
