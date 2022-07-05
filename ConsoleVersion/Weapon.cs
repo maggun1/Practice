@@ -10,9 +10,12 @@ namespace ConsoleVersion
     {
         private string name;
         private int damage;
-        private int consumptionOfActionPoints;
         public string Name { get => name; }
         public int Damage { get => damage; }
-        public int ConsumptionOfActionPoints { get => consumptionOfActionPoints; }
+        public Weapon(string name, int damage)
+        {
+            this.name = name;
+            this.damage = damage;
+        }
     }
 }
