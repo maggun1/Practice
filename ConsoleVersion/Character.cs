@@ -12,6 +12,7 @@ namespace ConsoleVersion
         private int health;
         private int armor;
         private int maxHealth;
+        public string Name { get => name; set => name = value; }
         public int Health { get => health; set => health = value; }
         public int Armor
         {
@@ -22,7 +23,7 @@ namespace ConsoleVersion
                     armor = 1;
             }
         }
-        public Character(string name, int health, int actionPoints, int armor)
+        public Character(string name, int health, int armor)
         {
             this.name = name;
             this.health = health;
@@ -40,5 +41,6 @@ namespace ConsoleVersion
                 throw new Exception($"{name} промахнулся!");
         }
         public void Heal() => health = maxHealth;
+
     }
 }
